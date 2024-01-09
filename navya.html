@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            background-image: url("https://www.1grandtrunk.com/wp-content/uploads/2018/11/online_shopping_sites-1.png");
+            background-size:cover;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            font-family: Arial, sans-serif;
+        }
+        
+        .container {
+            max-width: 600px;
+            margin: 50px auto;
+            padding: 20px;
+            background-color:blanchedalmond;
+            color:black;
+            border-radius: 5px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+
+        form {
+            display: flex;
+            flex-direction: column;
+        }
+
+        label {
+            font-weight: bold;
+            margin-top: 10px;
+        }
+
+        input[type="text"],
+        input[type="email"],
+        textarea {
+            padding: 10px;
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        button[type="submit"] {
+            background-color: brown;
+            color: blue;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        button[type="submit"]:hover {
+            background-color: black;
+        }
+        button[type="Reset"] {
+            background-color:brown;
+            color: blue;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        button[type="Reset"]:hover {
+            background-color: black;
+        }
+        h1{
+            color: brown;
+        }
+       
+
+        #response-message {
+            text-align: center;
+            margin-top: 20px;
+            font-weight: bold;
+        }
+    </style>
+    <title>Customer Feedback Form</title>
+
+</head>
+<body>
+    
+    <div class="container">
+        <h1> Customer Feedback Form</h1>
+        <form id="feedback-form">
+            <label for="name">NAME:</label>
+            <input type="text" id="name" name="name"  placeholder="ENTER YOUR NAME" required>
+            
+            <label for="email">EMAIL:</label>
+            <input type="email" id="email" name="email" placeholder="example@gmail.com" required>
+        
+            <label for="Gender">GENDER:<div> <input type="checkbox">MALE</div>
+                <div> <input type="checkbox">FEMALE
+                </div> 
+            </label> 
+
+           
+            <h3> RATE YOUR EXPERIENCE:</h3>
+            <tr>
+            <th class="first-col"></th>
+            <select id="first-col">
+                <option value=" Very Good">Very Good</option>
+                <option value="Good">Good</option>
+                <option value="Fair">Fair</option>
+                <option value="Poor">Poor</option>
+                <option value=" Very Poor">Very Poor</option>
+            </select>
+          </tr>
+              
+            <label for="Any suggestions to improve our service">FEEDBACK:</label>
+            <textarea id="feedback" name="feedback" rows="4" required></textarea>
+            
+            <button type="submit">Submit Feedback</button>
+            <br/>
+            <button type="Reset">Reset</button>
+        </form>
+        <p id="response-message"></p>
+    </div>
+    
+    <script>
+        document.getElementById("feedback-form").addEventListener("submit", function(event) {
+            event.preventDefault();
+            
+            const name = document.getElementById("name").value;
+            const email = document.getElementById("email").value;
+            const feedback = document.getElementById("feedback").value;
+            const responseMessage = document.getElementById("response-message");
+            responseMessage.textContent = Thank you, ${name}! Your feedback has been submitted.;
+            document.getElementById("feedback-form").reset();
+        });
+    </script>
+</body>
+</html>
